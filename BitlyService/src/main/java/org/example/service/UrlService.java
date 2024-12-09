@@ -23,7 +23,7 @@ public class UrlService {
     UrlUsageStatsRepository urlStatsRepository;
 
     public Url createShortUrl(String originalUrl, Long userId, LocalDateTime expiryDate){
-        String shortUrl = generateShortUrl();
+        String shortUrl = generateShortUrl(originalUrl);
         Url url = Url.Builder.newInstance()
                         .setOriginalUrl(originalUrl)
                         .setShortUrl(shortUrl)
