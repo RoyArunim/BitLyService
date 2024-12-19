@@ -21,4 +21,8 @@ public class UrlUsageStatsService {
         stats.setLocalDate(LocalDateTime.now());
         urlUsageStatsRepository.save(stats);
     }
+
+    public UrlUsageStats getStats(Long urlId) throws Exception {
+        return urlUsageStatsRepository.findByUrlID(urlId).orElseThrow(()->new Exception("Could not find stats for this urlId"));
+    }
 }

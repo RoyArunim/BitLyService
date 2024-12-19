@@ -35,13 +35,13 @@ public class UrlService {
 
     }
 
-    public String getOriginalUrl(String shortUrl) throws Exception {
-        Url url = urlRepository.findByShortUrl(shortUrl).orElseThrow(() -> new Exception("Short URL not found"));;
+    public Url getOriginalUrl(String shortUrl) throws Exception {
+        Url url = urlRepository.findByShortUrl(shortUrl).orElseThrow(() -> new Exception("Short URL not found"));
         if(url.getExpiryDate()!=null || url.getExpiryDate().isAfter(LocalDateTime.now())){
             throw new Exception("Url is expired");
         }
 
-        return url.getOriginalUrl();
+        return url;
 
 
     }
