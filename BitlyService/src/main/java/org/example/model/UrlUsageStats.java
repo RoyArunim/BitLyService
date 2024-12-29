@@ -7,9 +7,6 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
-
 public class UrlUsageStats {
 
     @Id
@@ -23,5 +20,47 @@ public class UrlUsageStats {
     private LocalDateTime localDate;
     private String browser;
     private String location;
+
+    public Long getId(){
+        return id;
+    }
+
+    public Url getUrl(){
+        return url;
+    }
+
+    public LocalDateTime getLocalDate(){
+        return localDate;
+    }
+
+    public String getBrowser(){
+        return browser;
+    }
+
+    public String getLocation(){
+        return location;
+    }
+
+    public void setId(Long id){
+        this.id=id;
+    }
+
+    public void setUrl(Url url){
+        this.url=url;
+    }
+
+    public void setLocalDate(LocalDateTime localDate){
+        this.localDate=localDate;
+    }
+
+    public void setBrowser(String browser){
+        this.browser=browser;
+    }
+
+    public void setLocation(String location){
+        this.location=location;
+    }
+
+
 
 }

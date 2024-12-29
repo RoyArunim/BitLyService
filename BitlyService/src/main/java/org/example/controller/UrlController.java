@@ -28,8 +28,8 @@ public class UrlController {
     }
 
     @GetMapping("/getOriginal/{shortUrl}")
-    public ResponseEntity<String> getOriginalUrl(@PathVariable String shortUrl) throws Exception {
-        String originalUrl =  urlService.getOriginalUrl(shortUrl);
+    public ResponseEntity<Url> getOriginalUrl(@PathVariable String shortUrl) throws Exception {
+        Url originalUrl =  urlService.getOriginalUrl(shortUrl);
         return ResponseEntity.ok(originalUrl);
     }
 

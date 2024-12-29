@@ -3,13 +3,9 @@ package org.example.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
-
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
 public class Url {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,12 +17,33 @@ public class Url {
     private LocalDateTime expiryDate;
     private Long userId;//for rate limiting
 
+
     public Url(Builder builder){
         this.id=builder.id;
         this.originalUrl=builder.originalUrl;
         this.shortUrl=builder.shortUrl;
         this.expiryDate=builder.expiryDate;
         this.userId=builder.userId;
+    }
+
+    public Long getId(){
+        return id;
+    }
+
+    public String getShortUrl(){
+        return shortUrl;
+    }
+
+    public String getOriginalUrl(){
+        return originalUrl;
+    }
+
+    public LocalDateTime getExpiryDate(){
+        return expiryDate;
+    }
+
+    public Long getUserId(){
+        return userId;
     }
 
     public static class Builder{
@@ -45,15 +62,25 @@ public class Url {
              this.id=id;
              return this;
         }
-
+        public long getId(Url url){
+             return url.id;
+        }
         public Builder setShortUrl(String shortUrl){
              this.shortUrl=shortUrl;
              return this;
         }
 
+        public String getShortUrl(Url url){
+             return url.shortUrl;
+        }
+
         public Builder setExpiryDate(LocalDateTime expiryDate){
              this.expiryDate=expiryDate;
              return this;
+        }
+
+        public LocalDateTime getExpiryDate(Url url){
+             return url.expiryDate;
         }
 
         public Builder setOriginalUrl(String originalUrl){

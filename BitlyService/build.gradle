@@ -17,7 +17,7 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.36'
 // https://mvnrepository.com/artifact/org.springframework/spring-web
     implementation group: 'org.springframework', name: 'spring-web', version: '6.2.0'
-
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

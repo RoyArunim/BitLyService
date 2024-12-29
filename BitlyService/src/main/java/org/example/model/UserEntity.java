@@ -8,8 +8,6 @@ import org.springframework.cglib.core.Local;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
 public class UserEntity {
 
     @Id
@@ -22,4 +20,35 @@ public class UserEntity {
     private int countOfRequests;
     private LocalDateTime rateLimitTimeReset;
 
+    public Long getId(){
+        return id;
+    }
+
+    public String getUsername(){
+        return username;
+    }
+
+    public int getCountOfRequests(){
+        return countOfRequests;
+    }
+
+    public LocalDateTime getRateLimitTimeReset(){
+        return rateLimitTimeReset;
+    }
+
+    public void setId(Long id){
+        this.id=id;
+    }
+
+    public void setUsername(String username){
+        this.username=username;
+    }
+
+    public void setCountOfRequests(int countOfRequests){
+        this.countOfRequests=countOfRequests;
+    }
+
+    public void setRateLimitTimeReset(LocalDateTime rateLimitTimeReset){
+        this.rateLimitTimeReset=rateLimitTimeReset;
+    }
 }
